@@ -21,7 +21,7 @@ class SequenciaTest extends Specification {
 		where:
 		result | list
 		false  | createDifferentNumberCards()
-		//false  | createSameNaipeCards()
+		false  | createSameNaipeCards()
 		true   | createMatchCards()
 	}
 
@@ -50,7 +50,7 @@ class SequenciaTest extends Specification {
 				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
 				new Card(suit: CardSuit.D, value: CardValue.CINCO),
 				new Card(suit: CardSuit.D, value: CardValue.SEIS),
-				new Card(suit: CardSuit.D, value: CardValue.SETE),
+				new Card(suit: CardSuit.C, value: CardValue.SETE),
 				new Card(suit: CardSuit.D, value: CardValue.DOIS),
 		]
 	}

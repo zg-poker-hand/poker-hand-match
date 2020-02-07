@@ -20,7 +20,7 @@ class Sequencia implements CategoryStrategy {
 	}
 
 	private static Boolean someWithDiffNaipe(List<Card> cards) {
-		return cards?.any { it.suit == cards[0].suit }
+		return cards?.any { it.suit != cards[0].suit }
 	}
 
 	private static Boolean fiveInSequence(List<Card> cards) {
