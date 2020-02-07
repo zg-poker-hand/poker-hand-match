@@ -77,9 +77,12 @@ class Robo(Resource):
             f.write(conteudo)
         print("Arquivo salvo em {}".format(arq))
 
-
+class Active(Resource):
+    def get(self):
+        return True
 
 api.add_resource(Robo, '/buscargames')  # Route_1
+api.add_resource(Active, '/isRunning')  # Route_2
 
 if __name__ == '__main__':
     app.run(port=5002)
