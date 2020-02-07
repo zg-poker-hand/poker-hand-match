@@ -7,7 +7,6 @@ import br.com.zg.pokerhand.models.Player
 
 class RoyalFlush implements CategoryStrategy {
 
-
 	@Override
 	Boolean isMatch(List<Card> cards) {
 		

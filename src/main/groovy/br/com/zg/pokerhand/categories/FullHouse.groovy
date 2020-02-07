@@ -7,7 +7,6 @@ import br.com.zg.pokerhand.models.Player
 
 class FullHouse implements CategoryStrategy {
 
-
 	@Override
 	Boolean isMatch(List<Card> cards) {
 		Map mapCards = cards.groupBy { Card card -> card.value }

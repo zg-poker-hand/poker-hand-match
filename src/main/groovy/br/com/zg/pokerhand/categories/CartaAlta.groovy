@@ -6,7 +6,6 @@ import br.com.zg.pokerhand.models.Player
 
 class CartaAlta implements CategoryStrategy {
 
-
 	@Override
 	Boolean isMatch(List<Card> cards) {
 		return true

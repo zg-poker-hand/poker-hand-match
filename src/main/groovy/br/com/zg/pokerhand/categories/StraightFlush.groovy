@@ -7,7 +7,6 @@ import br.com.zg.pokerhand.models.Player
 
 class StraightFlush implements CategoryStrategy {
 
-
 	@Override
 	Boolean isMatch(List<Card> cards) {
 		
