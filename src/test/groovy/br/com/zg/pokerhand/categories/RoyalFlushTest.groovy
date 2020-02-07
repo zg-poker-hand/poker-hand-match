@@ -9,7 +9,7 @@ import spock.lang.Unroll
 class RoyalFlushTest extends Specification {
 
 	@Unroll
-	def "IsMatch"() {
+	def "IsMatch - #result"() {
 		given:
 		RoyalFlush royalFlush = new RoyalFlush()
 
