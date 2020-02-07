@@ -1,5 +1,7 @@
 package br.com.zg.pokerhand.categories
 
+import br.com.zg.pokerhand.enums.CardSuit
+import br.com.zg.pokerhand.enums.CardValue
 import br.com.zg.pokerhand.interfaces.CategoryStrategy
 import br.com.zg.pokerhand.interfaces.FiveInSequenceStrategy
 import br.com.zg.pokerhand.models.Board
@@ -12,6 +14,10 @@ class StraightFlush implements CategoryStrategy, FiveInSequenceStrategy {
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
+		Card card = cards.find { it.value == CardValue.A }
+		if (card) {
+			cards.add(new Card(CardValue.ASUM, 'As valendo um', card.suit))
+		}
 		return theresFiveInSequence(cards)
 	}
 
