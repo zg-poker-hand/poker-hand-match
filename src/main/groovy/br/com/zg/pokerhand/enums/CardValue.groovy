@@ -15,9 +15,13 @@ enum CardValue {
 	K(13),
 	A(14),
 
-	private int value
+	private Integer value
 
-	CardValue(final int value) {
+	CardValue(final Integer value) {
 		this.value = value
+	}
+
+	Integer getValue() {
+		return value
 	}
 }
