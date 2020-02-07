@@ -19,7 +19,19 @@ class Flush implements CategoryStrategy {
 
 	@Override
 	void calculateScoreToUnDraw(Player player, Board board) {
-
+		List<Card> allCards = board.cards + player.cards
+		allCards.sort { Card card -> card.value.value }
+		Map groupCards = allCards.groupBy { it.suit }
+		List<Card> cardsInFlush = groupCards.findAll { it.value.size() >= 5 }.values().flatten() as List<Card>
+		int sizeFlush = cardsInFlush.size()
+		List<Card> comparisonCards = cardsInFlush.subList(sizeFlush - 5, sizeFlush)
+		Long score = 0
+		int n = 0
+		for (card in comparisonCards) {
+			score += card.getValue().getValue() * (14**n)
+			n++
+		}
+		player.points = score
 	}
 
 }

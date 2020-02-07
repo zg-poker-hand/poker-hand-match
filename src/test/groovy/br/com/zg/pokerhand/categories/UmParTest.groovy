@@ -36,8 +36,8 @@ class UmParTest extends Specification {
 		given:
 		UmPar umPar = new UmPar()
 		Board board = new Board(cards: createBoard())
-		Player player1 = new Player(cards: createPair1())
-		Player player2 = new Player(cards: createPair2())
+		Player player1 = new Player(cards: createCardsPlayer1())
+		Player player2 = new Player(cards: createCardsPlayer2())
 
 		when:
 		umPar.calculateScoreToUnDraw(player1, board)
@@ -60,20 +60,19 @@ class UmParTest extends Specification {
 		]
 	}
 
-	List<Card> createPair1() {
+	List<Card> createCardsPlayer1() {
 		return [
 				new Card(suit: CardSuit.C, value: CardValue.SETE),
 				new Card(suit: CardSuit.C, value: CardValue.NOVE)
 		]
 	}
 
-	List<Card> createPair2() {
+	List<Card> createCardsPlayer2() {
 		return [
 				new Card(suit: CardSuit.C, value: CardValue.Q),
 				new Card(suit: CardSuit.C, value: CardValue.NOVE)
 		]
 	}
-
 
 	List<Card> createBoard() {
 		return [
