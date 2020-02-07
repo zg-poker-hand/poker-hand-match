@@ -42,9 +42,8 @@ class ComputeGameServiceSpec extends Specification implements ServiceUnitTest<Co
 		when:
 		Player winner = computeGameService.matchWinner(game)
 
-		//TODO por enquanto até desempatar
 		then:
-		winner.category == new Player().category
+		winner == null
 	}
 
 	Player buildRoyalFlush() {
