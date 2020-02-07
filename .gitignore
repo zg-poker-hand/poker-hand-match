@@ -48,3 +48,6 @@ out-tsc
 !.vscode/extensions.json
 
 src/main/webapp/swagger.api.yaml
+
+# Arquivos Baixados
+web-app/*

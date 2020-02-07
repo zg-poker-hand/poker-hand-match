@@ -9,16 +9,8 @@
 <div class="container" style="margin-top: 20px">
 	<div class="row">
 		<div class="col-md-12">
-			<a href="pokerGameScreen/buscarPartidas" class="btn btn-success" >Buscar Partidas</a>
-		</div>
-	</div>
-	<br/>
-
-	<div class="row">
-		<div class="col-md-12">
-			<textarea class="form-control" name="textPardidasConsole" id="textPardidasConsole" rows="10">
-
-			</textarea>
+			<a href="pokerGameScreen/buscarPartidas" class="btn btn-info" >Buscar por partidas do site e processar</a>
+			<a href="pokerGameScreen/processarGames" class="btn btn-success">Processar partidas armazenadas localmente</a>
 		</div>
 	</div>
 	<br/>
@@ -35,20 +27,16 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>
-						Partida 1
-					</td>
-					<td>
-						1A 2A 3A 4A 5A
-					</td>
-					<td>
-						6A 7A
-					</td>
-					<td>
-						Jogador 1
-					</td>
-				</tr>
+				<g:each var="file" in="${games}">
+					<g:each var="game" in="${file}">
+						<tr>
+							<td>${game.name}</td>
+							<td>${game.board.cards.collect{it.description+it.suit}.join(' - ')}</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</g:each>
+				</g:each>
 				</tbody>
 			</table>
 		</div>

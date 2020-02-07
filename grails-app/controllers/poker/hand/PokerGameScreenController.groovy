@@ -1,9 +1,14 @@
 package poker.hand
 
-class PokerGameScreenController {
-    def index() { }
+import br.com.zg.pokerhand.models.Game
 
-	def	buscarPartidas ={
+class PokerGameScreenController {
+	PokerGameScreenService pokerGameScreenService
+    def index() {
+		if(!pokerGameScreenService) pokerGameScreenService = new PokerGameScreenService()
+	}
+
+	def	buscarPartidas = {
 		URL url = new URL("http://localhost:5002/buscargames")
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection()
 		connection.setRequestMethod("GET")
@@ -15,6 +20,14 @@ class PokerGameScreenController {
 			println('Erro na requisicao: Buscar Partidas')
 		}
 
-		redirect(uri: "/")
+		List<Game> games = pokerGameScreenService.gameResults
+
+		render(view: '/pokerGameScreen', model: [games: games])
+	}
+
+	def processarGames = {
+		List<Game> games = pokerGameScreenService.gameResults
+
+		render(view: '/pokerGameScreen', model: [games: games])
 	}
 }
