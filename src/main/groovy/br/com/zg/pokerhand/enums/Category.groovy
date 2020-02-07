@@ -1,6 +1,6 @@
 package br.com.zg.pokerhand.enums
 
-enum Categorie {
+enum Category {
 	CARTA_ALTA(0),
 	UM_PAR(1),
 	DOIS_PARES(2),
@@ -14,7 +14,7 @@ enum Categorie {
 
 	private Integer value
 
-	Categorie(final Integer value) {
+	Category(final Integer value) {
 		this.value = value
 	}
 
