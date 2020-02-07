@@ -20,11 +20,12 @@ class CartaAlta implements CategoryStrategy {
 		allCards.remove(0)
 		allCards.remove(0)
 		Long score = 0
-		int n = 0;
+		int n = 0
 		for (card in allCards){
-			score += card.getValue() * 14 ** n
+			score += card.getValue().getValue() * (14 ** n)
 			n++
 		}
+		player.points = score
 	}
 
 }
