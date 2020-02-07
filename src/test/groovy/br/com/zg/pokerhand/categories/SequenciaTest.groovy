@@ -21,19 +21,25 @@ class SequenciaTest extends Specification {
 		where:
 		result | list
 		false  | createDifferentNumberCards()
-		false  | createSameNaipeCards()
+		true   | createSameNaipeCards()
 		true   | createMatchCards()
 	}
 
 	List<Card> createDifferentNumberCards() {
 		return [
-				new Card(suit: CardSuit.C, value: CardValue.DOIS),
-				new Card(suit: CardSuit.C, value: CardValue.DOIS),
+				new Card(suit: CardSuit.D, value: CardValue.DOIS),
+				new Card(suit: CardSuit.D, value: CardValue.T),
+				new Card(suit: CardSuit.D, value: CardValue.TRES),
+				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
+				new Card(suit: CardSuit.D, value: CardValue.CINCO),
+				new Card(suit: CardSuit.D, value: CardValue.A),
+				new Card(suit: CardSuit.D, value: CardValue.Q),
 		]
 	}
 
 	List<Card> createSameNaipeCards() {
 		return [
+				new Card(suit: CardSuit.D, value: CardValue.DOIS),
 				new Card(suit: CardSuit.D, value: CardValue.DOIS),
 				new Card(suit: CardSuit.D, value: CardValue.TRES),
 				new Card(suit: CardSuit.D, value: CardValue.QUATRO),

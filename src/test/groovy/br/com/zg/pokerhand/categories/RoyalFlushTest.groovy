@@ -13,8 +13,11 @@ class RoyalFlushTest extends Specification {
 		given:
 		RoyalFlush royalFlush = new RoyalFlush()
 
+		when:
+		Boolean match = royalFlush.isMatch(list)
+
 		then:
-		royalFlush.isMatch(list)
+		match == result
 
 		where:
 		result | list
