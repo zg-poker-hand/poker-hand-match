@@ -18,7 +18,7 @@ class Quadra implements CategoryStrategy {
 	}
 
 	@Override
-	void calculateScoreToUnDraw(Player players, Board board) {
+	void calculateScoreToUnDraw(Player player, Board board) {
 
 	}
 
