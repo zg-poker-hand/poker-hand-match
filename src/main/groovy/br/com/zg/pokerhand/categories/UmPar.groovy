@@ -20,12 +20,15 @@ class UmPar implements CategoryStrategy {
 	@Override
 	void calculateScoreToUnDraw(Player player, Board board) {
 		List<Card> allCards = board.cards + player.cards
+		Map groupCards = allCards.groupBy { it.value.value }
+		List<Card> cardsInPair = groupCards.find { it.value.size() == 2 }.value
+		allCards.removeAll(cardsInPair)
 		allCards.sort { Card card -> card.getValue() }
-		allCards = allCards.subList(2, 7)
+		List<Card> comparisonCards = allCards.subList(2, 5) + cardsInPair
 		Long score = 0
 		int n = 0
-		for (card in allCards){
-			score += card.getValue().getValue() * (14 ** n)
+		for (card in comparisonCards) {
+			score += card.getValue().getValue() * (14**n)
 			n++
 		}
 		player.points = score
