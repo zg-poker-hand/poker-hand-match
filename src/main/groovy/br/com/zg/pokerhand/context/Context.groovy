@@ -1,7 +1,9 @@
 package br.com.zg.pokerhand.context
 
 import br.com.zg.pokerhand.interfaces.CategoryStrategy
+import br.com.zg.pokerhand.models.Board
 import br.com.zg.pokerhand.models.Card
+import br.com.zg.pokerhand.models.Player
 
 class Context {
 
@@ -11,7 +13,11 @@ class Context {
 		this.strategy = strategy
 	}
 
-	Boolean executeStrategy(List<Card> cards) {
+	Boolean executeMatchStrategy(List<Card> cards) {
 		return strategy.isMatch(cards)
+	}
+
+	executeCalculateScoreToUnDraw(Player player, Board board) {
+		return strategy.calculateScoreToUnDraw(player, board)
 	}
 }

@@ -9,7 +9,7 @@ import br.com.zg.pokerhand.models.Player
 
 class Sequencia implements CategoryStrategy, FiveInSequenceStrategy {
 
-	static MIN_SEQUENTIAL_REQUIRED = 5
+	private static MIN_SEQUENTIAL_REQUIRED = 5
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
@@ -25,7 +25,7 @@ class Sequencia implements CategoryStrategy, FiveInSequenceStrategy {
 	Boolean theresFiveInSequence(List<Card> cards) {
 		int sequentialRequired = 1
 		Boolean sequenceFounded = false
-		List<Card> sortedCards = cards?.sort { it.value }
+		List<Card> sortedCards = cards.sort { it.value }
 
 
 		sortedCards.eachWithIndex { card, index ->

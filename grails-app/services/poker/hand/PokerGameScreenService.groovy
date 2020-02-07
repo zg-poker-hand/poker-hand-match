@@ -6,7 +6,7 @@ import br.com.zg.pokerhand.sources.PokerGames
 class PokerGameScreenService {
 
     List<Game> getGameResults(){
-        List<File> files = findFiles()
+        List<File> files = findFiles().take(10)
         List<Game> games = getGames(files)
         return games
     }

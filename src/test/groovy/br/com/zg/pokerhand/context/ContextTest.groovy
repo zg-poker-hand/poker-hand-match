@@ -31,7 +31,7 @@ class ContextTest extends Specification {
 		when:
 		Category category = categories.find {
 			context = new Context(it.categoryStrategy)
-			return context.executeStrategy(cards)
+			return context.executeMatchStrategy(cards)
 		}
 
 		then:

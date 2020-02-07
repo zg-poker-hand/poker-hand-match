@@ -9,8 +9,12 @@ import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.databind.node.TextNode
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
+import poker.hand.ComputeGameService
 
 class PokerGames {
+
+	ComputeGameService computeGameService = new ComputeGameService()
+
 	static List<Game> getGames(String pathGame){
 		List<Game> games = []
 		File file = new File(pathGame)
@@ -46,6 +50,7 @@ class PokerGames {
 
 			actualGame.board = actualBoard
 			actualGame.players = actualPlayers
+			actualGame.winner = computeGameService.matchWinner(actualGame)
 
 			games << actualGame
 		}

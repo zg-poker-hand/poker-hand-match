@@ -1,8 +1,12 @@
 package br.com.zg.pokerhand.models
 
+import br.com.zg.pokerhand.enums.Category
+
 class Player {
 	List<Card> cards
 	Long points
+
+	Category category
 
 	Player(){
 		cards = []
