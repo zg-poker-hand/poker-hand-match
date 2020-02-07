@@ -5,9 +5,11 @@ import br.com.zg.pokerhand.models.Card
 
 class Sequential implements ICombination {
 
+	private static MIN_SEQUENTIAL_REQUIRED = 5
+
 	@Override
 	Boolean isMatch(List<Card> cards) {
-		return !sameNaipe(cards) && fiveInSequence(cards)
+		return cards.size() >= MIN_SEQUENTIAL_REQUIRED && !sameNaipe(cards) && fiveInSequence(cards)
 	}
 
 	private static Boolean sameNaipe(List<Card> cards) {

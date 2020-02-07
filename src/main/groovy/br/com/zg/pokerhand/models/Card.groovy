@@ -1,7 +1,10 @@
 package br.com.zg.pokerhand.models
 
+import br.com.zg.pokerhand.enums.CardSuit
+import br.com.zg.pokerhand.enums.CardValue
+
 class Card {
-	Integer value
+	CardValue value
 	String description
-	String suit
+	CardSuit suit
 }
