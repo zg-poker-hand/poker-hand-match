@@ -69,7 +69,7 @@ class SequenciaTest extends Specification {
 
 	List<Card> createDifferentNumberCards() {
 		return [
-				new Card(suit: CardSuit.D, value: CardValue.DOIS),
+				new Card(suit: CardSuit.D, value: CardValue.SEIS),
 				new Card(suit: CardSuit.D, value: CardValue.T),
 				new Card(suit: CardSuit.D, value: CardValue.TRES),
 				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
