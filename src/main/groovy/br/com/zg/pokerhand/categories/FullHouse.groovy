@@ -18,7 +18,7 @@ class FullHouse implements CategoryStrategy {
 	}
 
 	@Override
-	List<Player> getScoreToUnDraw(List<Player> players) {
+	Long getScoreToUnDraw(Player players) {
 
 	}
 
