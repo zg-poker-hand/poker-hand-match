@@ -15,7 +15,7 @@ class Sequencia implements CategoryStrategy {
 	}
 
 	@Override
-	void getScoreToUnDraw(Player players) {
+	void calculateScoreToUnDraw(Player players) {
 
 	}
 
