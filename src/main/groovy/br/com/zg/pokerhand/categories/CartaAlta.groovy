@@ -14,7 +14,17 @@ class CartaAlta implements CategoryStrategy {
 
 	@Override
 	void calculateScoreToUnDraw(Player player, Board board) {
-
+		List<Card> allCards = board.getCards()
+		allCards.addAll(player.getCards())
+		allCards.sort { Card card -> card.getValue() }
+		allCards.remove(0)
+		allCards.remove(0)
+		Long score = 0
+		int n = 0;
+		for (card in allCards){
+			score += card.getValue() * 14 ** n
+			n++
+		}
 	}
 
 }

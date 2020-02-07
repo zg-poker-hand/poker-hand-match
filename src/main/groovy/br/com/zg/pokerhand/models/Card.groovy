@@ -7,4 +7,15 @@ class Card {
 	CardValue value
 	String description
 	CardSuit suit
+
+	Card() {
+	}
+
+	Card(CardValue value, String description, CardSuit suit) {
+		this.value = value
+		this.description = description
+		this.suit = suit
+	}
+
+
 }
