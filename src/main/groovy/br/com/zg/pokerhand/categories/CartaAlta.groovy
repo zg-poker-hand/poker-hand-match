@@ -12,7 +12,7 @@ class CartaAlta implements CategoryStrategy {
 	}
 
 	@Override
-	Long getScoreToUnDraw(Player players) {
+	void getScoreToUnDraw(Player players) {
 
 	}
 
