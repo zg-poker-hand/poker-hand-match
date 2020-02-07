@@ -1,49 +1,68 @@
 package br.com.zg.pokerhand.combinations
 
+import br.com.zg.pokerhand.enums.CardSuit
+import br.com.zg.pokerhand.enums.CardValue
 import br.com.zg.pokerhand.models.Card
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class PairSpec extends Specification {
 
-	List<Card> cards
-	Pair pair
-	Boolean result
-
 	void setup() {
-		pair = new Pair()
-		cards = []
-		
 	}
 
-	def "testOnePair"() {
+	@Unroll
+	def "IsMatch - #expectedResult"() {
+		given:
+		Pair pair = new Pair()
+
 		when:
-		Card card1 = new Card(value: 3)
-		Card card2 = new Card(value: 3)
-		Card card3 = new Card(value: 4)
-		Card card4 = new Card(value: 6)
-		Card card5 = new Card(value: 7)
-		Card card6 = new Card(value: 10)
-		Card card7 = new Card(value: 11)
-		cards.addAll([card1, card2, card3, card4, card5, card6, card7])
-		result = pair.isMatch(cards)
+		Boolean result = pair.isMatch(list)
+
 		then:
-		result
+		result == expectedResult
+
+		where:
+		list            | expectedResult
+		createPair()    | true
+		createNoPair1() | false
+		createNoPair2() | false
 
 	}
 
-	def "testNoPair"() {
-		when:
-		Card card1 = new Card(value: 3)
-		Card card2 = new Card(value: 2)
-		Card card3 = new Card(value: 4)
-		Card card4 = new Card(value: 6)
-		Card card5 = new Card(value: 7)
-		Card card6 = new Card(value: 10)
-		Card card7 = new Card(value: 11)
-		cards.addAll([card1, card2, card3, card4, card5, card6, card7])
-		result = pair.isMatch(cards)
-		then:
-		!result
+	List<Card> createPair() {
+		return [
+				new Card(suit: CardSuit.C, value: CardValue.DOIS),
+				new Card(suit: CardSuit.C, value: CardValue.DOIS),
+				new Card(suit: CardSuit.C, value: CardValue.TRES),
+				new Card(suit: CardSuit.C, value: CardValue.NOVE),
+				new Card(suit: CardSuit.C, value: CardValue.QUATRO),
+				new Card(suit: CardSuit.C, value: CardValue.CINCO),
+				new Card(suit: CardSuit.C, value: CardValue.SEIS)
+		]
+	}
 
+	List<Card> createNoPair1() {
+		return [
+				new Card(suit: CardSuit.D, value: CardValue.DOIS),
+				new Card(suit: CardSuit.D, value: CardValue.T),
+				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
+				new Card(suit: CardSuit.D, value: CardValue.CINCO),
+				new Card(suit: CardSuit.D, value: CardValue.SEIS),
+				new Card(suit: CardSuit.D, value: CardValue.SETE),
+				new Card(suit: CardSuit.D, value: CardValue.NOVE)
+		]
+	}
+
+	List<Card> createNoPair2() {
+		return [
+				new Card(suit: CardSuit.D, value: CardValue.DOIS),
+				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
+				new Card(suit: CardSuit.D, value: CardValue.A),
+				new Card(suit: CardSuit.D, value: CardValue.CINCO),
+				new Card(suit: CardSuit.D, value: CardValue.J),
+				new Card(suit: CardSuit.D, value: CardValue.Q),
+				new Card(suit: CardSuit.D, value: CardValue.T)
+		]
 	}
 }

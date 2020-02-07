@@ -7,6 +7,10 @@ class DoublePair implements ICombination {
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
-
+		Map mapCards = cards.groupBy { Card card -> card.value }
+		if (mapCards.size() == 5 && mapCards.any { it.value.size() == 2 }) {
+			return true
+		}
+		return false
 	}
 }

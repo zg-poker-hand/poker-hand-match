@@ -1,48 +1,68 @@
 package br.com.zg.pokerhand.combinations
 
+import br.com.zg.pokerhand.enums.CardSuit
+import br.com.zg.pokerhand.enums.CardValue
 import br.com.zg.pokerhand.models.Card
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class TrincaSpec extends Specification {
 
-	List<Card> cards
-	Trinca trinca
-	Boolean result
-
 	void setup() {
-		trinca = new Trinca()
-		cards = []
 	}
 
-	def "testTrinca"() {
+	@Unroll
+	def "IsMatch - #expectedResult"() {
+		given:
+		Trinca trinca = new Trinca()
+
 		when:
-		Card card1 = new Card(value: 3)
-		Card card2 = new Card(value: 3)
-		Card card3 = new Card(value: 3)
-		Card card4 = new Card(value: 6)
-		Card card5 = new Card(value: 7)
-		Card card6 = new Card(value: 10)
-		Card card7 = new Card(value: 11)
-		cards.addAll([card1, card2, card3, card4, card5, card6, card7])
-		result = trinca.isMatch(cards)
+		Boolean result = trinca.isMatch(list)
+
 		then:
-		result
+		result == expectedResult
+
+		where:
+		list              | expectedResult
+		createTrinca()    | true
+		createNoTrinca1() | false
+		createNoTrinca2() | false
 
 	}
 
-	def "testNoTrinca"() {
-		when:
-		Card card1 = new Card(value: 3)
-		Card card2 = new Card(value: 2)
-		Card card3 = new Card(value: 4)
-		Card card4 = new Card(value: 6)
-		Card card5 = new Card(value: 7)
-		Card card6 = new Card(value: 10)
-		Card card7 = new Card(value: 11)
-		cards.addAll([card1, card2, card3, card4, card5, card6, card7])
-		result = trinca.isMatch(cards)
-		then:
-		!result
+	List<Card> createTrinca() {
+		return [
+				new Card(suit: CardSuit.C, value: CardValue.DOIS),
+				new Card(suit: CardSuit.C, value: CardValue.DOIS),
+				new Card(suit: CardSuit.C, value: CardValue.DOIS),
+				new Card(suit: CardSuit.C, value: CardValue.NOVE),
+				new Card(suit: CardSuit.C, value: CardValue.QUATRO),
+				new Card(suit: CardSuit.C, value: CardValue.CINCO),
+				new Card(suit: CardSuit.C, value: CardValue.SEIS)
+		]
+	}
 
+	List<Card> createNoTrinca1() {
+		return [
+				new Card(suit: CardSuit.D, value: CardValue.DOIS),
+				new Card(suit: CardSuit.D, value: CardValue.T),
+				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
+				new Card(suit: CardSuit.D, value: CardValue.CINCO),
+				new Card(suit: CardSuit.D, value: CardValue.SEIS),
+				new Card(suit: CardSuit.D, value: CardValue.SETE),
+				new Card(suit: CardSuit.D, value: CardValue.NOVE)
+		]
+	}
+
+	List<Card> createNoTrinca2() {
+		return [
+				new Card(suit: CardSuit.D, value: CardValue.DOIS),
+				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
+				new Card(suit: CardSuit.D, value: CardValue.A),
+				new Card(suit: CardSuit.D, value: CardValue.CINCO),
+				new Card(suit: CardSuit.D, value: CardValue.J),
+				new Card(suit: CardSuit.D, value: CardValue.Q),
+				new Card(suit: CardSuit.D, value: CardValue.T)
+		]
 	}
 }

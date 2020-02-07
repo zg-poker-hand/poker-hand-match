@@ -3,7 +3,7 @@ package br.com.zg.pokerhand.enums
 enum CardValue {
 	DOIS(2),
 	TRES(3),
-	QUADRO(4),
+	QUATRO(4),
 	CINCO(5),
 	SEIS(6),
 	SETE(7),
