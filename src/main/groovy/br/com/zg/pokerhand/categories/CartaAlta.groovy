@@ -15,7 +15,7 @@ class CartaAlta implements CategoryStrategy {
 	@Override
 	void calculateScoreToUnDraw(Player player, Board board) {
 		List<Card> allCards = board.cards + player.cards
-		allCards.sort { Card card -> card.getValue() }
+		allCards.sort { Card card -> card.getValue().getValue() }
 		allCards = allCards.subList(2, 7)
 		Long score = 0
 		int n = 0
