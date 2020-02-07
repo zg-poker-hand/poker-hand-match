@@ -6,7 +6,7 @@ import br.com.zg.pokerhand.models.Card
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class DoublePairTest extends Specification {
+class DoublePairCombinationCombinationTest extends Specification {
 
 	void setup() {
 	}
@@ -14,7 +14,7 @@ class DoublePairTest extends Specification {
 	@Unroll
 	def "IsMatch - #expectedResult"() {
 		given:
-		DoublePair doublePair = new DoublePair()
+		DoublePairCombination doublePair = new DoublePairCombination()
 
 		when:
 		Boolean result = doublePair.isMatch(list)

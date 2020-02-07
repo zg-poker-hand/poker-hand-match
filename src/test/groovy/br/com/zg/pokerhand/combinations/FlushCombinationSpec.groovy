@@ -6,7 +6,7 @@ import br.com.zg.pokerhand.models.Card
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class FlushSpec extends Specification {
+class FlushCombinationSpec extends Specification {
 
 	void setup() {
 	}
@@ -14,7 +14,7 @@ class FlushSpec extends Specification {
 	@Unroll
 	def "IsMatch - #expectedResult"() {
 		given:
-		Flush flush = new Flush()
+		FlushCombination flush = new FlushCombination()
 
 		when:
 		Boolean result = flush.isMatch(list)

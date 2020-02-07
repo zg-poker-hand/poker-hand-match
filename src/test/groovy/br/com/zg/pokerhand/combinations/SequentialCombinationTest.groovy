@@ -5,11 +5,11 @@ import br.com.zg.pokerhand.enums.CardValue
 import br.com.zg.pokerhand.models.Card
 import spock.lang.Specification
 
-class SequentialTest extends Specification {
+class SequentialCombinationTest extends Specification {
 
 	def "IsMatch - #result"() {
 		given:
-		Sequential sequential = Mock(Sequential)
+		SequentialCombination sequential = Mock(SequentialCombination)
 
 		List<Card> differentNumberCards = createDifferentNumberCards()
 		List<Card> sameNaipeCards = createSameNaipeCards()

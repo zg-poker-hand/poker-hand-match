@@ -6,7 +6,7 @@ import br.com.zg.pokerhand.models.Card
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class TrincaSpec extends Specification {
+class TrincaCombinationSpec extends Specification {
 
 	void setup() {
 	}
@@ -14,7 +14,7 @@ class TrincaSpec extends Specification {
 	@Unroll
 	def "IsMatch - #expectedResult"() {
 		given:
-		Trinca trinca = new Trinca()
+		TrincaCombination trinca = new TrincaCombination()
 
 		when:
 		Boolean result = trinca.isMatch(list)

@@ -3,7 +3,7 @@ package br.com.zg.pokerhand.combinations
 import br.com.zg.pokerhand.interfaces.ICombination
 import br.com.zg.pokerhand.models.Card
 
-class Sequential implements ICombination {
+class SequentialCombination implements ICombination {
 
 	private static MIN_SEQUENTIAL_REQUIRED = 5
 

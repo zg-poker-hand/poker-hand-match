@@ -9,7 +9,7 @@ class CartaAlta implements CategoryStrategy {
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
-
+		return true
 	}
 
 	@Override
