@@ -7,6 +7,6 @@ interface CategoryStrategy {
 
 	Boolean isMatch(List<Card> cards)
 
-	List<Player> unDraw(List<Player> players)
+	List<Player> getScoreToUnDraw(List<Player> players)
 
 }

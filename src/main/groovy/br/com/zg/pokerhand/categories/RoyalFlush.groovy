@@ -13,7 +13,7 @@ class RoyalFlush implements CategoryStrategy {
 	}
 
 	@Override
-	List<Player> unDraw(List<Player> players) {
+	List<Player> getScoreToUnDraw(List<Player> players) {
 
 	}
 
