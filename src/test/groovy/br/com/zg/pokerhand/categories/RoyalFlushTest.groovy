@@ -26,7 +26,12 @@ class RoyalFlushTest extends Specification {
 	List<Card> createDifferentNumberCards() {
 		return [
 				new Card(suit: CardSuit.C, value: CardValue.DOIS),
-				new Card(suit: CardSuit.C, value: CardValue.DOIS),
+				new Card(suit: CardSuit.S, value: CardValue.DOIS),
+				new Card(suit: CardSuit.C, value: CardValue.TRES),
+				new Card(suit: CardSuit.C, value: CardValue.QUATRO),
+				new Card(suit: CardSuit.C, value: CardValue.CINCO),
+				new Card(suit: CardSuit.C, value: CardValue.SEIS),
+				new Card(suit: CardSuit.C, value: CardValue.SETE)
 		]
 	}
 
@@ -34,22 +39,23 @@ class RoyalFlushTest extends Specification {
 		return [
 				new Card(suit: CardSuit.S, value: CardValue.T),
 				new Card(suit: CardSuit.C, value: CardValue.J),
-				new Card(suit: CardSuit.D, value: CardValue.Q),
-				new Card(suit: CardSuit.H, value: CardValue.K),
-				new Card(suit: CardSuit.D, value: CardValue.DOIS),
-				new Card(suit: CardSuit.D, value: CardValue.SETE),
+				new Card(suit: CardSuit.C, value: CardValue.Q),
+				new Card(suit: CardSuit.C, value: CardValue.K),
+				new Card(suit: CardSuit.C, value: CardValue.A),
+				new Card(suit: CardSuit.C, value: CardValue.SEIS),
+				new Card(suit: CardSuit.D, value: CardValue.SETE)
 		]
 	}
 
 	List<Card> createMatchCards() {
 		return [
 				new Card(suit: CardSuit.C, value: CardValue.T),
-				new Card(suit: CardSuit.D, value: CardValue.J),
-				new Card(suit: CardSuit.D, value: CardValue.Q),
-				new Card(suit: CardSuit.D, value: CardValue.K),
-				new Card(suit: CardSuit.D, value: CardValue.DOIS),
-				new Card(suit: CardSuit.C, value: CardValue.SETE),
-				new Card(suit: CardSuit.D, value: CardValue.A),
+				new Card(suit: CardSuit.C, value: CardValue.J),
+				new Card(suit: CardSuit.C, value: CardValue.Q),
+				new Card(suit: CardSuit.C, value: CardValue.K),
+				new Card(suit: CardSuit.C, value: CardValue.A),
+				new Card(suit: CardSuit.S, value: CardValue.SEIS),
+				new Card(suit: CardSuit.H, value: CardValue.SETE)
 		]
 	}
 }
