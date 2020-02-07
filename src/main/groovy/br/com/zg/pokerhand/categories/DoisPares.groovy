@@ -1,10 +1,10 @@
-package br.com.zg.pokerhand.models.categories
+package br.com.zg.pokerhand.categories
 
 import br.com.zg.pokerhand.interfaces.CategoryStrategy
 import br.com.zg.pokerhand.models.Card
 import br.com.zg.pokerhand.models.Player
 
-class RoyalFlush implements CategoryStrategy {
+class DoisPares implements CategoryStrategy {
 
 
 	@Override
