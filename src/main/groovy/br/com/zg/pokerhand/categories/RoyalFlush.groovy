@@ -1,5 +1,6 @@
 package br.com.zg.pokerhand.categories
 
+import br.com.zg.pokerhand.enums.CardValue
 import br.com.zg.pokerhand.interfaces.CategoryStrategy
 import br.com.zg.pokerhand.interfaces.FiveInSequenceStrategy
 import br.com.zg.pokerhand.models.Board
@@ -22,17 +23,19 @@ class RoyalFlush implements CategoryStrategy, FiveInSequenceStrategy {
 	Boolean fiveInSequence(List<Card> cards) {
 		List<Card> sortedByValue = cards.sort { it.value }
 
-		return sortedByValue.subList(0, 4) ||
-				sortedByValue.subList(1, 5) ||
-				sortedByValue.subList(2, 6)
+		return sortedByValue.last().value == CardValue.A &&
+				checkValueAndNaipe(sortedByValue.subList(2, 7))
 	}
 
-	static checkValueAndNaipe(List<Card> cards) {
-		return true
-	}
+	static Boolean checkValueAndNaipe(List<Card> cards) {
+		Boolean result = true
+		cards.eachWithIndex { card, index ->
+			if (cards.indexOf(card) + 1 != cards.size() && result) {
+				result = card.value.value + 1 == cards[index + 1].value.value && card.suit == cards.last().suit
+			}
+		}
 
-	static Boolean someWithDiffNaipe(List<Card> cards) {
-		return cards?.any { it.suit != cards[0].suit }
+		return result
 	}
 
 }
