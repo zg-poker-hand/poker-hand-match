@@ -4,6 +4,7 @@ import br.com.zg.pokerhand.models.Board
 import br.com.zg.pokerhand.models.Game
 import br.com.zg.pokerhand.models.Player
 import br.com.zg.pokerhand.utils.Utils
+import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.databind.node.TextNode
@@ -16,7 +17,14 @@ class PokerGames {
 		XmlMapper mapper = new XmlMapper()
 		String nameOfFile = file.getName().tokenize('.xml')?.first()
 
-		ObjectNode nodes = (ObjectNode)mapper.readTree(file)
+		ObjectNode nodes
+		try {
+			nodes = (ObjectNode)mapper.readTree(file)
+		}catch(JsonParseException error){
+			println('Erro na leitura do arquivo!')
+			return null
+		}
+
 		nodes._children.eachWithIndex{ Map.Entry<String, JsonNode> entry, int i ->
 			Game actualGame = new Game()
 			Board actualBoard = new Board()

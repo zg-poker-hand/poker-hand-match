@@ -15,4 +15,16 @@ class PokerGamesSpec extends Specification{
 		then:
 		games.size() == 4
 	}
+
+	void "testa leitura de games com erro"(){
+		given:
+		String filePath = System.getProperty('user.dir')+'/src/test/resources/HH20161020 T1702670049_err.xml'
+		List<Game> games = []
+
+		when:
+		games = PokerGames.getGames(filePath)
+
+		then:
+		!games
+	}
 }
