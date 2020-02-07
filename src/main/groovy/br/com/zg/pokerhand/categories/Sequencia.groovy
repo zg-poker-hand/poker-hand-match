@@ -14,7 +14,7 @@ class Sequencia implements CategoryStrategy, FiveInSequenceStrategy {
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
-		if (cards.find {it.value == CardValue.A}) {
+		if (cards.find { it.value == CardValue.A }) {
 			cards.add(new Card(CardValue.ASUM, 'As valendo um', CardSuit.C))
 		}
 		return cards.size() >= MIN_SEQUENTIAL_REQUIRED && theresFiveInSequence(cards)
@@ -44,17 +44,19 @@ class Sequencia implements CategoryStrategy, FiveInSequenceStrategy {
 				}
 			}
 		}
+		int sizeSequential = cardsSequential.size()
+		if (sizeSequential > 1) {
 
-		int sizeFlush = cardsSequential.size()
-		List<Card> comparisonCards = cardsSequential.subList(sizeFlush - 5, sizeFlush)
-		Long score = 0
-		int n = 0
-		for (card in comparisonCards) {
-			score += card.getValue().getValue() * (14**n)
-			n++
+			List<Card> comparisonCards = cardsSequential.subList(sizeSequential - 5, sizeSequential)
+			Long score = 0
+			int n = 0
+			for (card in comparisonCards) {
+				score += card.getValue().getValue() * (14**n)
+				n++
+			}
+			player.points = score
+
 		}
-		player.points = score
-
 	}
 
 	@Override

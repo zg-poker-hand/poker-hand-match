@@ -24,14 +24,16 @@ class Flush implements CategoryStrategy {
 		Map groupCards = allCards.groupBy { it.suit }
 		List<Card> cardsInFlush = groupCards.findAll { it.value.size() >= 5 }.values().flatten() as List<Card>
 		int sizeFlush = cardsInFlush.size()
-		List<Card> comparisonCards = cardsInFlush.subList(sizeFlush - 5, sizeFlush)
-		Long score = 0
-		int n = 0
-		for (card in comparisonCards) {
-			score += card.getValue().getValue() * (14**n)
-			n++
+		if (sizeFlush > 1) {
+			List<Card> comparisonCards = cardsInFlush.subList(sizeFlush - 5, sizeFlush)
+			Long score = 0
+			int n = 0
+			for (card in comparisonCards) {
+				score += card.getValue().getValue() * (14**n)
+				n++
+			}
+			player.points = score
 		}
-		player.points = score
 	}
 
 }
