@@ -17,7 +17,7 @@ class Context {
 		return strategy.isMatch(cards)
 	}
 
-	executeCalculateScoreToUnDraw(Player player, Board board) {
+	void executeCalculateScoreToUnDraw(Player player, Board board) {
 		strategy.calculateScoreToUnDraw(player, board)
 	}
 }
