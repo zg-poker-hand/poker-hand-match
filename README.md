@@ -9,4 +9,4 @@ instalar pacotes python3:
 Modo de usar:
 executar no terminal:
  python3 robo.py
-Mandar um get em: http://localhost:5002/isRunnin para saber se está rodando o servico
+Mandar um get em: http://localhost:5002/isRunning para saber se está rodando o servico
