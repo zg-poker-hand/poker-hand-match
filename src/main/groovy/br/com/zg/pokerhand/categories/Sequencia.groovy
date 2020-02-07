@@ -13,7 +13,7 @@ class Sequencia implements CategoryStrategy, FiveInSequenceStrategy {
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
-		return cards.size() >= MIN_SEQUENTIAL_REQUIRED && fiveInSequence(cards)
+		return cards.size() >= MIN_SEQUENTIAL_REQUIRED && theresFiveInSequence(cards)
 	}
 
 	@Override
@@ -22,7 +22,7 @@ class Sequencia implements CategoryStrategy, FiveInSequenceStrategy {
 	}
 
 	@Override
-	Boolean fiveInSequence(List<Card> cards) {
+	Boolean theresFiveInSequence(List<Card> cards) {
 		int sequentialRequired = 1
 		Boolean sequenceFounded = false
 		List<Card> sortedCards = cards?.sort { it.value }

@@ -11,7 +11,7 @@ class RoyalFlush implements CategoryStrategy, FiveInSequenceStrategy {
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
-		return fiveInSequence(cards)
+		return theresFiveInSequence(cards)
 	}
 
 	@Override
@@ -20,7 +20,7 @@ class RoyalFlush implements CategoryStrategy, FiveInSequenceStrategy {
 	}
 
 	@Override
-	Boolean fiveInSequence(List<Card> cards) {
+	Boolean theresFiveInSequence(List<Card> cards) {
 		List<Card> sortedByValue = cards.sort { it.value }
 
 		return sortedByValue.last().value == CardValue.A &&

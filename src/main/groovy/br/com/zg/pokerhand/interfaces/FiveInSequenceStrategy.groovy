@@ -4,6 +4,6 @@ import br.com.zg.pokerhand.models.Card
 
 interface FiveInSequenceStrategy {
 
-	Boolean fiveInSequence(List<Card> cards)
+	Boolean theresFiveInSequence(List<Card> cards)
 
 }
