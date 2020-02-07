@@ -1,6 +1,7 @@
 package br.com.zg.pokerhand.categories
 
-
+import br.com.zg.pokerhand.enums.CardSuit
+import br.com.zg.pokerhand.enums.CardValue
 import br.com.zg.pokerhand.interfaces.CategoryStrategy
 import br.com.zg.pokerhand.interfaces.FiveInSequenceStrategy
 import br.com.zg.pokerhand.models.Board
@@ -13,6 +14,9 @@ class Sequencia implements CategoryStrategy, FiveInSequenceStrategy {
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
+		if (cards.find {it.value == CardValue.A}) {
+			cards.add(new Card(CardValue.ASUM, 'As valendo um', CardSuit.C))
+		}
 		return cards.size() >= MIN_SEQUENTIAL_REQUIRED && theresFiveInSequence(cards)
 	}
 

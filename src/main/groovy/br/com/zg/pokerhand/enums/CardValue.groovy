@@ -1,6 +1,7 @@
 package br.com.zg.pokerhand.enums
 
 enum CardValue {
+	ASUM(1),
 	DOIS(2),
 	TRES(3),
 	QUATRO(4),
