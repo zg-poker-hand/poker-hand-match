@@ -13,9 +13,10 @@ import poker.hand.ComputeGameService
 
 class PokerGames {
 
-	ComputeGameService computeGameService = new ComputeGameService()
+	static ComputeGameService computeGameService
 
 	static List<Game> getGames(String pathGame){
+		if(!computeGameService) computeGameService = new ComputeGameService()
 		List<Game> games = []
 		File file = new File(pathGame)
 		XmlMapper mapper = new XmlMapper()
