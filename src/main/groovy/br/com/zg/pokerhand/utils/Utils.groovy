@@ -4,8 +4,6 @@ import br.com.zg.pokerhand.enums.CardSuit
 import br.com.zg.pokerhand.enums.CardValue
 import br.com.zg.pokerhand.models.Card
 
-import java.lang.reflect.Array
-
 class Utils {
 	static List<Card> getCardsFromString(String cardsString){
 		List<Card> cards = []

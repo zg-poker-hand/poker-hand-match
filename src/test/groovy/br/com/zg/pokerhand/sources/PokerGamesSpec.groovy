@@ -6,7 +6,7 @@ import spock.lang.Specification
 class PokerGamesSpec extends Specification{
 	void "testa leitura de games"(){
 		given:
-		String filePath = System.getProperty('user.dir')+'/src/test/resources/arquivo.xml'
+		String filePath = System.getProperty('user.dir')+'/src/test/resources/HH20161020 T1702670049.xml'
 		List<Game> games = []
 
 		when:

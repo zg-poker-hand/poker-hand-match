@@ -14,11 +14,13 @@ class PokerGames {
 		List<Game> games = []
 		File file = new File(pathGame)
 		XmlMapper mapper = new XmlMapper()
+		String nameOfFile = file.getName().tokenize('.xml')?.first()
 
 		ObjectNode nodes = (ObjectNode)mapper.readTree(file)
 		nodes._children.eachWithIndex{ Map.Entry<String, JsonNode> entry, int i ->
 			Game actualGame = new Game()
 			Board actualBoard = new Board()
+			actualGame.name = nameOfFile + ' game < ' + entry.key + ' >'
 
 			String boardCards = entry.value._children.board._value.toString()
 			actualBoard.cards = Utils.getCardsFromString(boardCards)
