@@ -9,8 +9,8 @@
 <div class="container" style="margin-top: 20px">
 	<div class="row">
 		<div class="col-md-12">
-			<a href="pokerGameScreen/buscarPartidas" class="btn btn-info" >Buscar por partidas do site e processar</a>
-			<a href="pokerGameScreen/processarGames" class="btn btn-success">Processar partidas armazenadas localmente</a>
+			<a href="/pokerGameScreen/buscarPartidas" class="btn btn-info" >Buscar por partidas do site e processar</a>
+			<a href="/pokerGameScreen/processarGames" class="btn btn-success">Processar partidas armazenadas localmente</a>
 		</div>
 	</div>
 	<br/>
@@ -42,6 +42,5 @@
 		</div>
 	</div>
 </div>
-
 </body>
 </html>

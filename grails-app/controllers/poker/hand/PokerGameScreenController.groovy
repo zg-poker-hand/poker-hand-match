@@ -27,7 +27,10 @@ class PokerGameScreenController {
 
 	def processarGames = {
 		List<Game> games = pokerGameScreenService.gameResults
-
-		render(view: '/pokerGameScreen', model: [games: games])
+		if (games?.size()>0){
+			render(view: '/pokerGameScreen', model: [games: games])
+		}else{
+			render(view: '/pokerGameScreen', model: [games: games])
+		}
 	}
 }
