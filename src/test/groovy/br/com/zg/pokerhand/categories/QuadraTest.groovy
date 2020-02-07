@@ -1,4 +1,4 @@
-package br.com.zg.pokerhand.combinations
+package br.com.zg.pokerhand.categories
 
 import br.com.zg.pokerhand.enums.CardSuit
 import br.com.zg.pokerhand.enums.CardValue
@@ -6,43 +6,42 @@ import br.com.zg.pokerhand.models.Card
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class PairCombinationSpec extends Specification {
-
+class QuadraTest extends Specification {
 	void setup() {
 	}
 
 	@Unroll
 	def "IsMatch - #expectedResult"() {
 		given:
-		PairCombination pair = new PairCombination()
+		Quadra quadra = new Quadra()
 
 		when:
-		Boolean result = pair.isMatch(list)
+		Boolean result = quadra.isMatch(list)
 
 		then:
 		result == expectedResult
 
 		where:
 		list            | expectedResult
-		createPair()    | true
-		createNoPair1() | false
-		createNoPair2() | false
+		createQuadra()    | true
+		createNoQuadra1() | false
+		createNoQuadra2() | false
 
 	}
 
-	List<Card> createPair() {
+	List<Card> createQuadra() {
 		return [
 				new Card(suit: CardSuit.C, value: CardValue.DOIS),
 				new Card(suit: CardSuit.C, value: CardValue.DOIS),
-				new Card(suit: CardSuit.C, value: CardValue.TRES),
-				new Card(suit: CardSuit.C, value: CardValue.NOVE),
+				new Card(suit: CardSuit.C, value: CardValue.DOIS),
+				new Card(suit: CardSuit.C, value: CardValue.DOIS),
 				new Card(suit: CardSuit.C, value: CardValue.QUATRO),
 				new Card(suit: CardSuit.C, value: CardValue.CINCO),
 				new Card(suit: CardSuit.C, value: CardValue.SEIS)
 		]
 	}
 
-	List<Card> createNoPair1() {
+	List<Card> createNoQuadra1() {
 		return [
 				new Card(suit: CardSuit.D, value: CardValue.DOIS),
 				new Card(suit: CardSuit.D, value: CardValue.T),
@@ -54,7 +53,7 @@ class PairCombinationSpec extends Specification {
 		]
 	}
 
-	List<Card> createNoPair2() {
+	List<Card> createNoQuadra2() {
 		return [
 				new Card(suit: CardSuit.D, value: CardValue.DOIS),
 				new Card(suit: CardSuit.D, value: CardValue.QUATRO),

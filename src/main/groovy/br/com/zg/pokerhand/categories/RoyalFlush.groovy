@@ -10,7 +10,7 @@ class RoyalFlush implements CategoryStrategy {
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
-
+		
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package br.com.zg.pokerhand.combinations
+package br.com.zg.pokerhand.categories
 
 import br.com.zg.pokerhand.enums.CardSuit
 import br.com.zg.pokerhand.enums.CardValue
@@ -6,46 +6,45 @@ import br.com.zg.pokerhand.models.Card
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class DoublePairCombinationCombinationTest extends Specification {
-
+class TrincaTest extends Specification {
 	void setup() {
 	}
 
 	@Unroll
 	def "IsMatch - #expectedResult"() {
 		given:
-		DoublePairCombination doublePair = new DoublePairCombination()
+		Trinca trinca = new Trinca()
 
 		when:
-		Boolean result = doublePair.isMatch(list)
+		Boolean result = trinca.isMatch(list)
 
 		then:
 		result == expectedResult
 
 		where:
-		list                  | expectedResult
-		createDoublePair()    | true
-		createNoDoublePair1() | false
-		createNoDoublePair2() | false
+		list              | expectedResult
+		createTrinca()    | true
+		createNoTrinca1() | false
+		createNoTrinca2() | false
 
 	}
 
-	List<Card> createDoublePair() {
+	List<Card> createTrinca() {
 		return [
 				new Card(suit: CardSuit.C, value: CardValue.DOIS),
 				new Card(suit: CardSuit.C, value: CardValue.DOIS),
-				new Card(suit: CardSuit.C, value: CardValue.TRES),
-				new Card(suit: CardSuit.C, value: CardValue.TRES),
+				new Card(suit: CardSuit.C, value: CardValue.DOIS),
+				new Card(suit: CardSuit.C, value: CardValue.NOVE),
 				new Card(suit: CardSuit.C, value: CardValue.QUATRO),
 				new Card(suit: CardSuit.C, value: CardValue.CINCO),
 				new Card(suit: CardSuit.C, value: CardValue.SEIS)
 		]
 	}
 
-	List<Card> createNoDoublePair1() {
+	List<Card> createNoTrinca1() {
 		return [
 				new Card(suit: CardSuit.D, value: CardValue.DOIS),
-				new Card(suit: CardSuit.D, value: CardValue.DOIS),
+				new Card(suit: CardSuit.D, value: CardValue.T),
 				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
 				new Card(suit: CardSuit.D, value: CardValue.CINCO),
 				new Card(suit: CardSuit.D, value: CardValue.SEIS),
@@ -54,16 +53,15 @@ class DoublePairCombinationCombinationTest extends Specification {
 		]
 	}
 
-	List<Card> createNoDoublePair2() {
+	List<Card> createNoTrinca2() {
 		return [
 				new Card(suit: CardSuit.D, value: CardValue.DOIS),
 				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
-				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
+				new Card(suit: CardSuit.D, value: CardValue.A),
 				new Card(suit: CardSuit.D, value: CardValue.CINCO),
-				new Card(suit: CardSuit.D, value: CardValue.CINCO),
-				new Card(suit: CardSuit.D, value: CardValue.CINCO),
+				new Card(suit: CardSuit.D, value: CardValue.J),
+				new Card(suit: CardSuit.D, value: CardValue.Q),
 				new Card(suit: CardSuit.D, value: CardValue.T)
 		]
 	}
-
 }
