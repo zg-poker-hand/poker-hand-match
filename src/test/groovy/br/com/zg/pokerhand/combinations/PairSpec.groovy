@@ -1,20 +1,20 @@
-package br.com.zg.pokerhand.sources.combinations
+package br.com.zg.pokerhand.combinations
 
-import br.com.zg.pokerhand.combinations.Trinca
+import br.com.zg.pokerhand.combinations.Pair
 import br.com.zg.pokerhand.models.Card
 import spock.lang.Specification
 
-class TrincaSpec extends Specification {
+class PairSpec extends Specification {
 
 	List<Card> cards
-	Trinca trinca
+	Pair pair 
 	Boolean result
-
+	
 	void setup() {
-		trinca = new Trinca()
+		pair = new Pair()
 		Card card1 = new Card(value: 3)
 		Card card2 = new Card(value: 3)
-		Card card3 = new Card(value: 3)
+		Card card3 = new Card(value: 4)
 		Card card4 = new Card(value: 6)
 		Card card5 = new Card(value: 7)
 		Card card6 = new Card(value: 10)
@@ -23,15 +23,15 @@ class TrincaSpec extends Specification {
 		cards.addAll([card1, card2, card3, card4, card5, card6, card7])
 	}
 
-	def "testTrinca"() {
+	def "testOnePair"() {
 		when:
-		result = trinca.isMatch(cards)
-		then:
+		result = pair.isMatch(cards)
+		then: 
 		result
-
+		
 	}
 
-	def "testNoTrinca"() {
+	def "testNoPair"() {
 		when:
 		Card card1 = new Card(value: 3)
 		Card card2 = new Card(value: 2)
@@ -41,7 +41,7 @@ class TrincaSpec extends Specification {
 		Card card6 = new Card(value: 10)
 		Card card7 = new Card(value: 11)
 		cards.addAll([card1, card2, card3, card4, card5, card6, card7])
-		result = trinca.isMatch(cards)
+		result = pair.isMatch(cards)
 		then:
 		!result
 
