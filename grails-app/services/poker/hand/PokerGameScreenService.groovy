@@ -13,8 +13,10 @@ class PokerGameScreenService {
     List<File> findFiles(){
         List<File> files = []
         File dir = new File(System.getProperty('user.dir')+'/src/main/resources/web-files')
-        dir.eachFile {file ->
-            files << file
+        if (dir.exists()){
+            dir.eachFile {file ->
+                files << file
+            }
         }
         return files
     }

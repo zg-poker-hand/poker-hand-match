@@ -14,6 +14,7 @@ from flask import Flask
 from flask_restful import Resource, Api
 import requests
 import re
+import os
 
 app = Flask(__name__)
 api = Api(app)
@@ -27,11 +28,14 @@ class Robo(Resource):
         return self.buscar_cartas()
 
     def buscar_cartas(self):
+        if not os.path.exists(caminho_resources):
+            os.makedirs(caminho_resources)
+
         global cookies
         #abrindo pagina inicial
         r = self.acessar_pagina(site + '/index')
 
-        #coletando links das datas 
+        #coletando links das datas
         conteudo = r.text.replace('\n', '')
         paginas = re.findall('(?<=\/poker-game\/arquivo)([^"]+)(?=">)', conteudo)
         paginas = sorted(set(paginas))
