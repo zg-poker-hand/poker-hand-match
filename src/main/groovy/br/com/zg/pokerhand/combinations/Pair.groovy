@@ -7,6 +7,10 @@ class Pair implements ICombination {
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
-
+		Map mapCards = cards.groupBy { Card card -> card.value }
+		if (mapCards.size() == 6) {
+			return true
+		}
+		return false
 	}
 }
