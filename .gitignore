@@ -1,0 +1,50 @@
+# Created by .ignore support plugin (hsz.mobi)
+!.gitkeep
+
+# Itellij Idea Workspace
+.idea/*
+!.idea/runConfigurations
+*.iws
+*.iml
+*.ids
+*.ipr
+
+# Gradle
+.gradle
+build
+classes
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# Extras
+out
+target
+*.log
+.settings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# compiled output
+dist
+tmp
+out-tsc
+
+# Other IDEs and editors
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+src/main/webapp/swagger.api.yaml
