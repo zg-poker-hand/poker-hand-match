@@ -1,9 +1,18 @@
-#sudo pip3 install flask flask-jsonpify flask-sqlalchemy flask-restful
+'''
+Pre-requisitos: python3
+instalar pacotes python:
+ sudo pip3 install flask flask-jsonpify flask-sqlalchemy flask-restful
+
+Usagem:
+executar no terminal:
+ python3 robo.py
+Mandar um get em: http://localhost:8080/buscargames
+os arquivos serao baixados e salvos na pasta resources/web-files
+'''
 
 from flask import Flask
 from flask_restful import Resource, Api
 import requests
-import unittest
 import re
 
 app = Flask(__name__)
@@ -11,7 +20,7 @@ api = Api(app)
 
 site = 'http://172.22.1.41:8080/poker-game/arquivo'
 cookies = ''
-caminho_resources = 'web-files'
+caminho_resources = '../resources/web-files'
 
 class Robo(Resource):
     def get(self):
@@ -47,7 +56,7 @@ class Robo(Resource):
 
                 self.salvar_arquivo(nome, r.content)
 
-        return "qtd: {} \n{}".format(len(links), links)
+        return "OK"
 
 
     def acessar_pagina(self, pagina):
@@ -66,7 +75,7 @@ class Robo(Resource):
 
 
 
-api.add_resource(Robo, '/buscarcartas')  # Route_1
+api.add_resource(Robo, '/buscargames')  # Route_1
 
 if __name__ == '__main__':
     app.run(port=8080)
