@@ -11,6 +11,10 @@ class SequentialTest extends Specification {
 		given:
 		Sequential sequential = Mock(Sequential)
 
+		List<Card> differentNumberCards = createDifferentNumberCards()
+		List<Card> sameNaipeCards = createSameNaipeCards()
+		List<Card> matchCards = createMatchCards()
+
 		when:
 		Boolean match = sequential.isMatch(list)
 
@@ -19,21 +23,21 @@ class SequentialTest extends Specification {
 
 		where:
 		result | list
-		true   | ''
-		false  | ''
-		false  | ''
+		true   | matchCards
+		false  | differentNumberCards
+		false  | sameNaipeCards
 	}
 
-	List<Card> createNotMatchNumberCards() {
+	List<Card> createDifferentNumberCards() {
 		return [
 				new Card(suit: CardSuit.C, value: CardValue.DOIS),
 				new Card(suit: CardSuit.C, value: CardValue.DOIS),
 		]
 	}
 
-	List<Card> createNotMatchSequenceCards() {
+	List<Card> createSameNaipeCards() {
 		return [
-				new Card(suit: CardSuit.C, value: CardValue.DOIS),
+				new Card(suit: CardSuit.D, value: CardValue.DOIS),
 				new Card(suit: CardSuit.D, value: CardValue.TRES),
 				new Card(suit: CardSuit.D, value: CardValue.QUADRO),
 				new Card(suit: CardSuit.D, value: CardValue.CINCO),

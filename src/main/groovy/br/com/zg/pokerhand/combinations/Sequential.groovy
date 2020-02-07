@@ -9,11 +9,11 @@ class Sequential implements ICombination {
 
 	@Override
 	Boolean isMatch(List<Card> cards) {
-		return cards.size() >= MIN_SEQUENTIAL_REQUIRED && !sameNaipe(cards) && fiveInSequence(cards)
+		return cards.size() >= MIN_SEQUENTIAL_REQUIRED && !someWithDiffNaipe(cards) && fiveInSequence(cards)
 	}
 
-	private static Boolean sameNaipe(List<Card> cards) {
-		return cards?.every { it.suit == cards[0].suit }
+	private static Boolean someWithDiffNaipe(List<Card> cards) {
+		return cards?.any { it.suit == cards[0].suit }
 	}
 
 	private static Boolean fiveInSequence(List<Card> cards) {
