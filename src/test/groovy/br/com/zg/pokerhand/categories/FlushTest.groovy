@@ -2,7 +2,9 @@ package br.com.zg.pokerhand.categories
 
 import br.com.zg.pokerhand.enums.CardSuit
 import br.com.zg.pokerhand.enums.CardValue
+import br.com.zg.pokerhand.models.Board
 import br.com.zg.pokerhand.models.Card
+import br.com.zg.pokerhand.models.Player
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -28,6 +30,47 @@ class FlushTest extends Specification {
 		createNoFlush2() | false
 
 	}
+
+	def "calculateScoreToUnDraw - #expectedResult"() {
+		given:
+		Flush flush = new Flush()
+		Board board = new Board(cards: createBoard())
+		Player player1 = new Player(cards: createCardsPlayer1())
+		Player player2 = new Player(cards: createCardsPlayer2())
+
+		when:
+		flush.calculateScoreToUnDraw(player1, board)
+		flush.calculateScoreToUnDraw(player2, board)
+
+		then:
+		player1.points > player2.points
+
+	}
+
+	List<Card> createCardsPlayer1() {
+		return [
+				new Card(suit: CardSuit.C, value: CardValue.TRES),
+				new Card(suit: CardSuit.H, value: CardValue.K)
+		]
+	}
+
+	List<Card> createCardsPlayer2() {
+		return [
+				new Card(suit: CardSuit.C, value: CardValue.TRES),
+				new Card(suit: CardSuit.H, value: CardValue.J)
+		]
+	}
+
+	List<Card> createBoard() {
+		return [
+				new Card(suit: CardSuit.H, value: CardValue.DOIS),
+				new Card(suit: CardSuit.S, value: CardValue.TRES),
+				new Card(suit: CardSuit.H, value: CardValue.TRES),
+				new Card(suit: CardSuit.H, value: CardValue.CINCO),
+				new Card(suit: CardSuit.H, value: CardValue.Q)
+		]
+	}
+	
 
 	List<Card> createFlush() {
 		return [
