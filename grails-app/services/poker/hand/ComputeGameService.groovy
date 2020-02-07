@@ -2,6 +2,7 @@ package poker.hand
 
 import br.com.zg.pokerhand.context.Context
 import br.com.zg.pokerhand.enums.Category
+import br.com.zg.pokerhand.models.Board
 import br.com.zg.pokerhand.models.Game
 import br.com.zg.pokerhand.models.Player
 
@@ -17,7 +18,7 @@ class ComputeGameService {
 	}
 
 	Player matchWinner(Game game) {
-		setCategoriesIntoPlayers(game.players)
+		setCategoriesIntoPlayers(game.players, game.board)
 		List<Player> playersUnderDraw = extractsPlayersUnderDraw(game.players)
 
 		if (playersUnderDraw.size() == 1) {
@@ -39,11 +40,11 @@ class ComputeGameService {
 		}
 	}
 
-	private setCategoriesIntoPlayers(List<Player> players) {
+	private setCategoriesIntoPlayers(List<Player> players, Board board) {
 		players.each { player ->
 			player.category = categories.find {
 				context = new Context(it.categoryStrategy)
-				return context.executeMatchStrategy(player.cards)
+				return context.executeMatchStrategy(player.cards, board)
 			}
 		}
 

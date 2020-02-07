@@ -13,8 +13,8 @@ class Context {
 		this.strategy = strategy
 	}
 
-	Boolean executeMatchStrategy(List<Card> cards) {
-		return strategy.isMatch(cards)
+	Boolean executeMatchStrategy(List<Card> cards, Board board) {
+		return strategy.isMatch(cards + board.cards)
 	}
 
 	void executeCalculateScoreToUnDraw(Player player, Board board) {
