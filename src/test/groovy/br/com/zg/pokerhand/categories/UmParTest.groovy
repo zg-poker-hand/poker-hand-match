@@ -86,7 +86,7 @@ class UmParTest extends Specification {
 
 	List<Card> createNoPair1() {
 		return [
-				new Card(suit: CardSuit.D, value: CardValue.DOIS),
+				new Card(suit: CardSuit.D, value: CardValue.A),
 				new Card(suit: CardSuit.D, value: CardValue.DOIS),
 				new Card(suit: CardSuit.D, value: CardValue.QUATRO),
 				new Card(suit: CardSuit.D, value: CardValue.CINCO),
@@ -100,7 +100,7 @@ class UmParTest extends Specification {
 		return [
 				new Card(suit: CardSuit.D, value: CardValue.DOIS),
 				new Card(suit: CardSuit.D, value: CardValue.TRES),
-				new Card(suit: CardSuit.D, value: CardValue.TRES),
+				new Card(suit: CardSuit.D, value: CardValue.SETE),
 				new Card(suit: CardSuit.D, value: CardValue.CINCO),
 				new Card(suit: CardSuit.D, value: CardValue.J),
 				new Card(suit: CardSuit.D, value: CardValue.Q),
