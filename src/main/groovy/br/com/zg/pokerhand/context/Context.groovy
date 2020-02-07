@@ -18,6 +18,6 @@ class Context {
 	}
 
 	executeCalculateScoreToUnDraw(Player player, Board board) {
-		return strategy.calculateScoreToUnDraw(player, board)
+		strategy.calculateScoreToUnDraw(player, board)
 	}
 }
