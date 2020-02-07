@@ -1,14 +1,3 @@
-'''
-Pre-requisitos: python3
-instalar pacotes python:
- sudo pip3 install flask flask-jsonpify flask-sqlalchemy flask-restful
-
-Usagem:
-executar no terminal:
- python3 robo.py
-Mandar um get em: http://localhost:8080/buscargames
-os arquivos serao baixados e salvos na pasta resources/web-files
-'''
 
 from flask import Flask
 from flask_restful import Resource, Api
