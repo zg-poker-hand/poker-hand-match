@@ -19,7 +19,14 @@ class Quadra implements CategoryStrategy {
 
 	@Override
 	void calculateScoreToUnDraw(Player player, Board board) {
-
+		List<Card> allCards = board.cards + player.cards
+		Map mapCards = allCards.groupBy { Card card -> card.value.value }
+		List<Card> cards = mapCards.find {it.value.size() == 4}.value as List<Card>
+		allCards.removeAll(cards)
+		Card card = allCards.max {it.value.value}
+		Long score = card.value.value
+		score += cards.first().value.value * 14
+		player.points = score
 	}
 
 }

@@ -54,8 +54,8 @@ class CartaAltaTest {
 		player2.cards.add(cards.get(1))
 		player2.cards.add(cards.get(8))
 
-		Long score1 = cartaAlta.calculateScoreToUnDraw(player1, board)
-		Long score2 = cartaAlta.calculateScoreToUnDraw(player2, board)
-		Assert.assertEquals(score1 < score2)
+		cartaAlta.calculateScoreToUnDraw(player1, board)
+		cartaAlta.calculateScoreToUnDraw(player2, board)
+		Assert.assertTrue(player1.points < player2.points)
 	}
 }
