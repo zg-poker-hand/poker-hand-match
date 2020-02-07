@@ -22,11 +22,14 @@ class UmPar implements CategoryStrategy {
 		List<Card> allCards = board.cards + player.cards
 		Map groupCards = allCards.groupBy { it.value.value }
 		if (groupCards.find { it.value }) {
-			List<Card> cardsInPair = groupCards.find { it.value.size() == 2 }.value as List<Card>
-			allCards.removeAll(cardsInPair)
-			allCards.sort { Card card -> card.getValue() }
-			List<Card> comparisonCards = allCards.subList(2, 5) + cardsInPair
+			List<Card> cardsInPair = groupCards.find { it.value.size() == 2 }?.value as List<Card>
 			Long score = 0
+			List<Card> comparisonCards = []
+			if(cardsInPair){
+				allCards.removeAll(cardsInPair)
+				allCards.sort { Card card -> card.getValue() }
+				comparisonCards = allCards.subList(2, 5) + cardsInPair
+			}
 			int n = 0
 			for (card in comparisonCards) {
 				score += card.getValue().getValue() * (14**n)

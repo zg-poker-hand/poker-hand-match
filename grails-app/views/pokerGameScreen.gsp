@@ -33,7 +33,7 @@
 							<td>${game.name}</td>
 							<td>${game.board.cards.collect{it.description+it.suit}.join(' - ')}</td>
 							<td>
-								<g:if test="game.winner">
+								<g:if test="${game.winner}">
 									${game.winner.cards.collect{it.description+it.suit}.join(' - ') }
 								</g:if>
 							</td>
