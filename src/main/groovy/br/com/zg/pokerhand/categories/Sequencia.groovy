@@ -18,6 +18,38 @@ class Sequencia implements CategoryStrategy, FiveInSequenceStrategy {
 
 	@Override
 	void calculateScoreToUnDraw(Player player, Board board) {
+		List<Card> allCards = board.cards + player.cards
+		List<Card> cardsSequential = []
+		List<Card> sortedCards = allCards?.sort { it.value }
+		int sequentialRequired = 1
+		Boolean sequenceFounded = false
+
+		sortedCards.eachWithIndex { card, index ->
+			if (index < allCards.size() - 1) {
+				if (card.value.value + 1 == sortedCards[index + 1].value.value && !sequenceFounded) {
+					cardsSequential.add(card)
+					sequentialRequired++
+
+					if (sequentialRequired == MIN_SEQUENTIAL_REQUIRED) {
+						cardsSequential.add(sortedCards[index + 1])
+						sequenceFounded = true
+					}
+				} else if (!sequenceFounded) {
+					sequentialRequired = 1
+					cardsSequential = []
+				}
+			}
+		}
+
+		int sizeFlush = cardsSequential.size()
+		List<Card> comparisonCards = cardsSequential.subList(sizeFlush - 5, sizeFlush)
+		Long score = 0
+		int n = 0
+		for (card in comparisonCards) {
+			score += card.getValue().getValue() * (14**n)
+			n++
+		}
+		player.points = score
 
 	}
 
